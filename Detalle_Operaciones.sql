@@ -7,15 +7,15 @@ SET QUOTED_IDENTIFIER ON
 GO
 /*****************************************************************
 * CREADO POR: SAVAR AGENTES DE ADUANA
- *             Jesús A. Anton Pachas
- * FECHA CREA: 24/11/2020
- * DESCRIPCION: LISTA LAS TRANSACCION DE MINERIA
+ *             Oscar Cordova
+ * FECHA CREA: 08/05/2021
+ * DESCRIPCION: Detalle de bitacora de transacciones
  * EXECUCION : 
-    	EXEC DBO.RPT_TRANSACCION_MINERIA  
+    	EXEC DBO.RPT_BITACORA_TRANSACCION_ARE  
 *****************************************************************/
 
---exec RPT_TRANSACCION_MINERIA_TEST 'SVCL','WH1','01','','','','','',1,100,'','','ASL727'
-ALTER PROCEDURE [dbo].[RPT_TRANSACCION_MINERIA] 
+--exec RPT_BITACORA_TRANSACCION_ARE 'SVCL','WH1','01','','','','','',1,100,'','','ASL727'
+CREATE PROCEDURE [dbo].[RPT_BITACORA_TRANSACCION_ARE] 
 (
 	@trans_no integer,
 	@sku varchar(40)
@@ -59,5 +59,6 @@ SET NOCOUNT ON;
 
   
 END
+
 
 
