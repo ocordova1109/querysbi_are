@@ -37,13 +37,23 @@ SET NOCOUNT ON;
 		
 		select 
 		inv.REF_NO2 as nropedido,
-		ord.*
+		inv.SKU,
+        inv.SKU_DESC,
+        detp.CANTIDAD as CANT_SOLI,
+        detp.CANT_ENTREGADA,
+        detp.CANT_CONFIRMA,
+        detp.US_CONFIRMA,
+        detp.FEC_CONFIRMA,
+        detp.US_CREAR,
+        detp.FEC_CREAR,
+        ord.US_CREAR,
+        ord.FEC_CREAR        
 		from INVENTARIO_ARE inv
 		left join DESPACHO_HDR dsp on inv.REF_NO=dsp.ORD_NO
 		left join PEDIDOS_ARE ped on dsp.EXT_ORD_NO=ped.NRO_PEDIDO
 		left join PEDIDOS_DTL_ARE detp on ped.IDPEDIDO=detp.IDPEDIDO and inv.SKU=detp.SKU
 		left join ORDENES_ARE ord on ped.ID_ORDEN=ord.IDORDEN
-		where inv.TRANS_NO=17747 
+		where inv.TRANS_NO=@trans_no 
 		--select * from PEDIDOS_ARE where NRO_PEDIDO=4755  4861	
 	end		
 
